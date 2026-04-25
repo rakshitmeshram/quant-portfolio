@@ -129,8 +129,10 @@ function ResearchPage() {
         {/* Posts */}
         <div className="space-y-4">
           {posts.map((p) => (
-            <article
+            <Link
               key={p.title}
+              to="/research/$slug"
+              params={{ slug: p.slug }}
               className="group grid grid-cols-[180px_1fr_auto] items-center gap-6 rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent-blue/40 hover:shadow-md"
             >
               <div className="aspect-[16/10] overflow-hidden rounded-lg bg-accent-blue-soft/40 p-2">
@@ -161,7 +163,7 @@ function ResearchPage() {
                 </div>
                 <ArrowRight className="h-5 w-5 text-accent-blue transition-transform group-hover:translate-x-1" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
