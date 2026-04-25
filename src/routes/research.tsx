@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
+import { researchPosts as posts } from "@/data/portfolioContent";
 import {
   Mail,
   ArrowRight,
@@ -20,49 +21,6 @@ export const Route = createFileRoute("/research")({
   }),
   component: ResearchPage,
 });
-
-const posts = [
-  {
-    title: "Why Most Backtests Lie",
-    date: "May 12, 2024",
-    read: "6 min read",
-    desc: "Common backtesting pitfalls that inflate performance and how to build more realistic evaluations.",
-    tags: ["Backtesting", "Methodology", "Risk"],
-    chart: "line",
-  },
-  {
-    title: "Factor Crowding is Underrated",
-    date: "Apr 28, 2024",
-    read: "8 min read",
-    desc: "Measuring crowding in equity factors and its impact on future returns.",
-    tags: ["Factors", "Crowding", "Equities"],
-    chart: "scatter",
-  },
-  {
-    title: "Latency is a Strategy",
-    date: "Apr 10, 2024",
-    read: "7 min read",
-    desc: "How microstructure dynamics and latency advantages create sustainable edges.",
-    tags: ["Microstructure", "Execution", "HFT"],
-    chart: "bars",
-  },
-  {
-    title: "Regime Detection with Hidden Markov Models",
-    date: "Mar 22, 2024",
-    read: "9 min read",
-    desc: "Using HMMs to identify market regimes and adapt strategy exposure.",
-    tags: ["Machine Learning", "Regime", "Python"],
-    chart: "heat",
-  },
-  {
-    title: "Transaction Costs Change Everything",
-    date: "Mar 05, 2024",
-    read: "5 min read",
-    desc: "The compounding impact of costs and how to model them correctly.",
-    tags: ["Transaction Costs", "Slippage", "Risk"],
-    chart: "line",
-  },
-];
 
 const categories = [
   { icon: Grid3x3, label: "All", count: 12, active: true },

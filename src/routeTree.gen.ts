@@ -14,6 +14,8 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResearchSlugRouteImport } from './routes/research.$slug'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
@@ -40,43 +42,81 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResearchSlugRoute = ResearchSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ResearchRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
-  '/research': typeof ResearchRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/research': typeof ResearchRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/research/$slug': typeof ResearchSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
-  '/research': typeof ResearchRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/research': typeof ResearchRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/research/$slug': typeof ResearchSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
-  '/research': typeof ResearchRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/research': typeof ResearchRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/research/$slug': typeof ResearchSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/projects' | '/research'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/research'
+    | '/projects/$slug'
+    | '/research/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/projects' | '/research'
-  id: '__root__' | '/' | '/about' | '/contact' | '/projects' | '/research'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/research'
+    | '/projects/$slug'
+    | '/research/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/research'
+    | '/projects/$slug'
+    | '/research/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ProjectsRoute: typeof ProjectsRoute
-  ResearchRoute: typeof ResearchRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
+  ResearchRoute: typeof ResearchRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -116,15 +156,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/research/$slug': {
+      id: '/research/$slug'
+      path: '/$slug'
+      fullPath: '/research/$slug'
+      preLoaderRoute: typeof ResearchSlugRouteImport
+      parentRoute: typeof ResearchRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
+
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
+interface ResearchRouteChildren {
+  ResearchSlugRoute: typeof ResearchSlugRoute
+}
+
+const ResearchRouteChildren: ResearchRouteChildren = {
+  ResearchSlugRoute: ResearchSlugRoute,
+}
+
+const ResearchRouteWithChildren = ResearchRoute._addFileChildren(
+  ResearchRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRoute,
-  ResearchRoute: ResearchRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
+  ResearchRoute: ResearchRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
