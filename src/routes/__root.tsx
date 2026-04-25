@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { SiteSidebar, MobileTopBar } from "@/components/SiteSidebar";
 
 import appCss from "../styles.css?url";
 
@@ -29,21 +30,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "AR_ — Quant Developer & Financial Engineer" },
+      { name: "description", content: "Portfolio of a quantitative developer turning markets into edge through systematic trading, research, and high-performance infrastructure." },
+      { property: "og:title", content: "AR_ — Quant Developer & Financial Engineer" },
+      { property: "og:description", content: "Systematic trading, quant research, and high-performance systems." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -65,5 +59,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <SiteSidebar />
+      <MobileTopBar />
+      <main className="lg:pl-[140px]">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
