@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
+import { projects } from "@/data/portfolioContent";
 import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
@@ -11,51 +12,6 @@ export const Route = createFileRoute("/projects")({
   }),
   component: ProjectsPage,
 });
-
-const projects = [
-  {
-    num: "01",
-    title: "Statistical Arbitrage Engine",
-    desc: "Cross-sectional mean reversion exploiting short-term liquidity imbalances.",
-    tags: ["Equities", "StatArb", "Mid-Frequency", "Python"],
-    metrics: [{ k: "Sharpe", v: "1.72" }, { k: "Max DD", v: "-6.4%" }, { k: "Turnover", v: "280%" }],
-  },
-  {
-    num: "02",
-    title: "Options Lab",
-    desc: "Options pricing, calibration, and volatility surface modeling toolkit.",
-    tags: ["Options", "Volatility", "C++", "Python"],
-    metrics: [{ k: "Models", v: "12" }, { k: "Latency", v: "<2ms" }, { k: "Coverage", v: "98%" }],
-  },
-  {
-    num: "03",
-    title: "Market Data Pipeline",
-    desc: "High-throughput pipeline for tick-level market data ingestion and storage.",
-    tags: ["Data Eng", "KDB+", "Python", "AWS"],
-    metrics: [{ k: "Throughput", v: "2M/s" }, { k: "Uptime", v: "99.99%" }, { k: "Storage", v: "40TB" }],
-  },
-  {
-    num: "04",
-    title: "Real-Time Risk Engine",
-    desc: "Portfolio risk analytics with intraday VaR, exposure limits, and stress tests.",
-    tags: ["Risk", "VaR", "C++", "Postgres"],
-    metrics: [{ k: "Coverage", v: "100%" }, { k: "Refresh", v: "1s" }, { k: "Books", v: "24" }],
-  },
-  {
-    num: "05",
-    title: "Multi-Factor Momentum",
-    desc: "Long-short equities momentum strategy with regime-aware factor weighting.",
-    tags: ["Equities", "Momentum", "Factor"],
-    metrics: [{ k: "Sharpe", v: "1.34" }, { k: "Beta", v: "0.08" }, { k: "Hit", v: "55%" }],
-  },
-  {
-    num: "06",
-    title: "Execution Simulator",
-    desc: "Event-driven simulator with market impact, slippage, and queue modeling.",
-    tags: ["Execution", "Simulation", "C++"],
-    metrics: [{ k: "Speed", v: "10x" }, { k: "Models", v: "6" }, { k: "Tests", v: "320" }],
-  },
-];
 
 function ProjectsPage() {
   return (
@@ -71,7 +27,8 @@ function ProjectsPage() {
         {projects.map((p) => (
           <Link
             key={p.num}
-            to="/projects"
+            to="/projects/$slug"
+            params={{ slug: p.slug }}
             className="group flex flex-col rounded-2xl border border-border bg-surface p-7 transition-all hover:-translate-y-1 hover:border-accent-blue/40 hover:shadow-xl"
           >
             <div className="flex items-start justify-between">
