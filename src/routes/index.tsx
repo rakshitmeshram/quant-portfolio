@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import heroViz from "@/assets/hero-viz.jpg";
+import { useEffect, useState } from "react";
+import heroWave from "@/assets/hero-wave.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
