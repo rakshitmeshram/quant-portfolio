@@ -6,7 +6,7 @@ import heroWave from "@/assets/hero-wave.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AR_ — I turn markets into edge" },
+      { title: "Rakshit Meshram" },
       { name: "description", content: "Quant developer building systematic trading strategies, high-performance infrastructure, and data-driven research." },
     ],
   }),
