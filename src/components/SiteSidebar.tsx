@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { num: "01", label: "HOME", to: "/" },
@@ -67,6 +68,7 @@ export function SiteSidebar() {
         <a href="mailto:hello@example.com" aria-label="Email" className="hover:text-foreground transition-colors">
           <Mail className="h-5 w-5" />
         </a>
+        <ThemeToggle className="mt-1" />
       </div>
     </aside>
   );
@@ -80,7 +82,7 @@ export function MobileTopBar() {
         <span>AR</span>
         <span className="text-accent-blue">_</span>
       </Link>
-      <nav className="flex gap-4 text-[11px] font-semibold tracking-[0.15em]">
+      <nav className="flex items-center gap-4 text-[11px] font-semibold tracking-[0.15em]">
         {navItems.map((item) => {
           const isActive =
             item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
@@ -94,6 +96,7 @@ export function MobileTopBar() {
             </Link>
           );
         })}
+        <ThemeToggle />
       </nav>
     </div>
   );
