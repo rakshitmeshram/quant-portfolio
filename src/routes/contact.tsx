@@ -16,7 +16,7 @@ import {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — AR_" },
+      { title: "Contact" },
       { name: "description", content: "Open to quant roles, research collaborations, and high-performance system design." },
     ],
   }),
