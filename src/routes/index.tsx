@@ -70,51 +70,8 @@ function HomePage() {
           </Link>
         </div>
 
-        {/* Code/visualization card */}
-        <div className="relative">
-          {/* Coordinate label on the right edge */}
-          <div className="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 rotate-90 font-mono text-[10px] tracking-[0.3em] text-muted-foreground lg:block">
-            51.5074° N, 0.1278° W
-          </div>
-
-          <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[0_30px_80px_-30px_rgba(15,23,42,0.18)]">
-            {/* Visualization background */}
-            <img
-              src={heroViz}
-              alt="Particle wave visualization of market data"
-              width={1280}
-              height={896}
-              className="absolute inset-0 h-full w-full object-cover opacity-95"
-            />
-            {/* Soft white wash on the left so code stays legible */}
-            <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/85 to-transparent" />
-
-            <div className="relative p-7">
-              <div className="font-mono text-lg text-accent-blue">{">_"}</div>
-              <pre className="mt-4 max-w-[60%] overflow-hidden font-mono text-[13px] leading-relaxed text-foreground/80">
-{`# Model: Mean Reversion Strategy
-
-Universe = Top2000
-Lookback  = 63
-`}<span className="text-accent-blue">Signal</span>{`    = `}<span className="text-accent-blue">zscore</span>{`(returns)
-`}<span className="text-accent-blue">Weights</span>{`   = `}<span className="text-accent-blue">rank_signal</span>{`(Signal)
-`}<span className="text-accent-blue">PnL</span>{`       = `}<span className="text-accent-blue">backtest</span>{`(Weights)
-
-# Sharpe
-`}<span className="text-accent-blue text-base font-semibold">1.72</span>
-              </pre>
-              {/* Spacer to give the visualization room to breathe */}
-              <div className="h-40" />
-              <div className="font-mono text-lg text-accent-blue">{">_"}</div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center justify-center gap-2">
-            <span className="h-1 w-8 rounded-full bg-accent-blue" />
-            <span className="h-1 w-8 rounded-full bg-border" />
-            <span className="h-1 w-8 rounded-full bg-border" />
-          </div>
-        </div>
+        {/* Hero carousel */}
+        <HeroCarousel />
       </section>
 
       {/* Featured projects */}
