@@ -7,7 +7,7 @@ export const Route = createFileRoute("/research_/$slug")({
     const post = getResearchPost(params.slug);
     return {
       meta: [
-        { title: `${post?.title ?? "Research"} — AR_` },
+        { title: `${post?.title ?? "Research"}` },
         { name: "description", content: post?.desc ?? "Research note." },
         { property: "og:title", content: `${post?.title ?? "Research"} — AR_` },
         { property: "og:description", content: post?.desc ?? "Research note." },
