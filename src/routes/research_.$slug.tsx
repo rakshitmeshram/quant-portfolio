@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock, Lightbulb } from "lucide-react";
 import { getAdjacentResearchPost, getResearchPost } from "@/data/portfolioContent";
 
-export const Route = createFileRoute("/research/$slug")({
+export const Route = createFileRoute("/research_/$slug")({
   head: ({ params }) => {
     const post = getResearchPost(params.slug);
     return {

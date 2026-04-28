@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BarChart3, CircleDot, Database, Gauge, GitBranch, Lightbulb, Shield, SlidersHorizontal, Zap } from "lucide-react";
 import { getAdjacentProject, getProject } from "@/data/portfolioContent";
 
-export const Route = createFileRoute("/projects/$slug")({
+export const Route = createFileRoute("/projects_/$slug")({
   head: ({ params }) => {
     const project = getProject(params.slug);
     return {
