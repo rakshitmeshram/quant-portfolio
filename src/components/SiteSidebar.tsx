@@ -41,6 +41,11 @@ export function SiteSidebar() {
               </div>
               <div className="mt-1 flex items-center gap-2">
                 <span
+                  className={`h-1.5 w-1.5 flex-shrink-0 rounded-full transition-colors ${
+                    isActive ? "bg-accent-blue" : "bg-transparent"
+                  }`}
+                />
+                <span
                   className={`text-xs font-semibold tracking-[0.15em] transition-colors ${
                     isActive
                       ? "text-accent-blue"
@@ -49,9 +54,6 @@ export function SiteSidebar() {
                 >
                   {item.label}
                 </span>
-                {isActive && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-blue" />
-                )}
               </div>
             </Link>
           );
