@@ -14,7 +14,7 @@ export function SiteSidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[140px] flex-col justify-between border-r border-border/60 bg-background/80 px-8 py-8 backdrop-blur-sm lg:flex">
+    <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[150px] flex-col justify-between border-r border-border/60 bg-background/80 px-8 py-8 backdrop-blur-sm lg:flex">
       <div>
         <Link to="/" className="flex items-center gap-0.5 text-2xl font-bold tracking-tight">
           <span>AR</span>

@@ -65,7 +65,7 @@ function RootComponent() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteSidebar />
       <MobileTopBar />
-      <main className="lg:pl-[140px]">
+      <main className="lg:pl-[150px]">
         <Outlet />
       </main>
     </div>
