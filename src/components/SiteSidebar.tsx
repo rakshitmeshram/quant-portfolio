@@ -58,17 +58,17 @@ export function SiteSidebar() {
         })}
       </nav>
 
-      <div className="flex flex-col gap-5 text-muted-foreground">
-        <a href="https://github.com" aria-label="GitHub" className="hover:text-foreground transition-colors">
+      <div className="flex flex-col items-start gap-4 text-muted-foreground">
+        <a href="https://github.com" aria-label="GitHub" className="inline-flex h-8 w-8 items-center justify-center hover:text-foreground transition-colors">
           <Github className="h-5 w-5" />
         </a>
-        <a href="https://linkedin.com" aria-label="LinkedIn" className="hover:text-foreground transition-colors">
+        <a href="https://linkedin.com" aria-label="LinkedIn" className="inline-flex h-8 w-8 items-center justify-center hover:text-foreground transition-colors">
           <Linkedin className="h-5 w-5" />
         </a>
-        <a href="mailto:hello@example.com" aria-label="Email" className="hover:text-foreground transition-colors">
+        <a href="mailto:hello@example.com" aria-label="Email" className="inline-flex h-8 w-8 items-center justify-center hover:text-foreground transition-colors">
           <Mail className="h-5 w-5" />
         </a>
-        <ThemeToggle className="mt-1" />
+        <ThemeToggle />
       </div>
     </aside>
   );
