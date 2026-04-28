@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { SiteSidebar, MobileTopBar } from "@/components/SiteSidebar";
+import { ThemeInitScript } from "@/components/ThemeToggle";
 
 import appCss from "../styles.css?url";
 
@@ -48,6 +49,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <ThemeInitScript />
         <HeadContent />
       </head>
       <body>
