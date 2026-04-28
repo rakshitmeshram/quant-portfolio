@@ -31,12 +31,16 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AR_ — Quant Developer & Financial Engineer" },
-      { name: "description", content: "Portfolio of a quantitative developer turning markets into edge through systematic trading, research, and high-performance infrastructure." },
-      { property: "og:title", content: "AR_ — Quant Developer & Financial Engineer" },
-      { property: "og:description", content: "Systematic trading, quant research, and high-performance systems." },
+      { title: "Rakshit - Quant Portfolio" },
+      { name: "description", content: "Rakshit Meshram is a quantitative developer turning markets into edge through systematic trading, research, and high-performance infrastructure." },
+      { property: "og:title", content: "Rakshit - Quant Portfolio" },
+      { property: "og:description", content: "Rakshit Meshram is a quantitative developer turning markets into edge through systematic trading, research, and high-performance infrastructure." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rakshit - Quant Portfolio" },
+      { name: "twitter:description", content: "Rakshit Meshram is a quantitative developer turning markets into edge through systematic trading, research, and high-performance infrastructure." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb4e5dd4-1535-4059-b5fc-79aa534ed3af/id-preview-a17bc622--8c094022-f64b-4a43-86bb-9f7d04e9013c.lovable.app-1777372360267.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cb4e5dd4-1535-4059-b5fc-79aa534ed3af/id-preview-a17bc622--8c094022-f64b-4a43-86bb-9f7d04e9013c.lovable.app-1777372360267.png" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -65,7 +69,7 @@ function RootComponent() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteSidebar />
       <MobileTopBar />
-      <main className="lg:pl-[150px]">
+      <main className="lg:pl-[140px]">
         <Outlet />
       </main>
     </div>
